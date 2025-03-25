@@ -1,0 +1,24 @@
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+const PORT = 5000;
+
+app.use(cors());
+
+// Sample pollution data
+const pollutionData = [
+  { name: "New York", aqi: 85, pm25: 12 },
+  { name: "Los Angeles", aqi: 102, pm25: 18 },
+  { name: "Delhi", aqi: 210, pm25: 95 },
+  { name: "Beijing", aqi: 180, pm25: 78 },
+  { name: "London", aqi: 65, pm25: 8 },
+];
+
+app.get("/api/pollution", (req, res) => {
+  res.json(pollutionData);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
